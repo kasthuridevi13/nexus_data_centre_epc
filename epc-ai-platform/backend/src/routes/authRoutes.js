@@ -49,4 +49,21 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
+router.get("/seed-database", async (req, res, next) => {
+  try {
+    const existingAdmin = await User.findOne({ email: "admin@nexus.com" });
+    if (existingAdmin) {
+      return res.json({ message: "Database already seeded." });
+    }
+    await User.create({
+      email: "admin@nexus.com",
+      password: "password123",
+      role: "admin"
+    });
+    res.json({ message: "Database successfully seeded! You can now log in." });
+  } catch (err) {
+    next(err);
+  }
+});
+
 export default router;
