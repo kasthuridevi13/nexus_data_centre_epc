@@ -19,13 +19,23 @@ import dashboardRoutes from "./routes/dashboardRoutes.js";
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(cors()); // Allow all origins for seamless frontend connection
 app.use(express.json({ limit: "5mb" }));
 
+// Serverless DB connection middleware
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 200, // limit each IP to 200 requests per windowMs
+  windowMs: 15 * 60 * 1000,
+  max: 200,
 });
 app.use("/api/", apiLimiter);
 
@@ -46,8 +56,11 @@ app.use("/api/dashboard", verifyToken, dashboardRoutes);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+if (!process.env.VERCEL && process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  connectDB().then(() => {
+    app.listen(PORT, () => console.log(`[server] listening on port ${PORT}`));
+  });
+}
 
-connectDB().then(() => {
-  app.listen(PORT, () => console.log(`[server] listening on port ${PORT}`));
-});
+export default app;
