@@ -28,8 +28,10 @@ Clause 2.1 Redundancy: Cooling towers shall be configured N+1 minimum across all
 Clause 2.3 Water Treatment: Automated chemical dosing and conductivity monitoring shall be provided for Legionella control per ASHRAE 188.
 Clause 2.5 Approach Temperature: Cooling towers shall achieve a design approach temperature of 5F (2.8C) at peak wet bulb conditions.`;
 
-async function seed() {
-  await connectDB();
+export async function seedData(shouldDisconnect = false) {
+  if (mongoose.connection.readyState === 0) {
+    await connectDB();
+  }
   console.log("[seed] clearing existing demo collections...");
   await Promise.all([
     Document.deleteMany({}),
@@ -162,12 +164,16 @@ async function seed() {
     },
   ]);
 
-  console.log("[seed] done. Run the Compliance Agent against the UPS submittal to see a real deviation caught.");
-  console.log(`[seed] Submittal document id: ${submittalUPS._id}`);
-  await mongoose.disconnect();
+  console.log("[seed] done.");
+  if (shouldDisconnect) {
+    await mongoose.disconnect();
+  }
 }
 
-seed().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (process.argv[1] && process.argv[1].endsWith("seed.js")) {
+  seedData(true).catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
+
