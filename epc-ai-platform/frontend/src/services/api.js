@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const DEFAULT_BACKEND_URL = "https://nexus-data-centre-epc.onrender.com/api";
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "/api",
+  baseURL: import.meta.env.VITE_API_URL || DEFAULT_BACKEND_URL,
 });
 
-console.log("Frontend API is attempting to connect to:", import.meta.env.VITE_API_URL || "/api");
+console.log("Frontend API is attempting to connect to:", import.meta.env.VITE_API_URL || DEFAULT_BACKEND_URL);
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("nexus_token");

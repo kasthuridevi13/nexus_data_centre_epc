@@ -8,17 +8,25 @@ export const connectDB = async () => {
     return;
   }
 
-  const uri = process.env.MONGO_URI || "mongodb://localhost:27017/epc_ai_platform";
+  mongoose.set("bufferCommands", false);
+
+  const uri = process.env.MONGO_URI;
+  if (!uri && (process.env.VERCEL || process.env.NODE_ENV === "production")) {
+    console.warn("[db] Serverless/Production environment without MONGO_URI. Operating with in-memory fallback auth/services.");
+    return;
+  }
+
+  const targetUri = uri || "mongodb://localhost:27017/epc_ai_platform";
   try {
-    await mongoose.connect(uri, { serverSelectionTimeoutMS: 5000 });
+    await mongoose.connect(targetUri, { serverSelectionTimeoutMS: 3000 });
     isConnected = true;
-    console.log(`[db] connected -> ${uri.replace(/:[^:@]+@/, ":***@")}`);
+    console.log(`[db] connected -> ${targetUri.replace(/:[^:@]+@/, ":***@")}`);
   } catch (err) {
     console.error(`\n❌ [db] Connection to MongoDB failed: ${err.message}`);
 
     // On Vercel / serverless environment, skip downloading mongodb-memory-server
     if (process.env.VERCEL || process.env.NODE_ENV === "production") {
-      console.error("[db] Serverless/Production environment detected. Skipping in-memory fallback.");
+      console.error("[db] Serverless/Production environment detected. Skipping in-memory server creation.");
       return;
     }
 

@@ -1,4 +1,5 @@
 import "dotenv/config";
+console.log("Starting backend process...");
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";

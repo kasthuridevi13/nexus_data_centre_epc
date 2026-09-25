@@ -15,10 +15,7 @@ function getClient() {
  */
 export async function askGroq({ system, prompt, maxTokens = 1200 }) {
   const groq = getClient();
-  let model = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
-  if (model === "llama3-70b-8192") {
-    model = "llama-3.3-70b-versatile";
-  }
+  let model = process.env.GROQ_MODEL || "llama3-70b-8192";
 
   const response = await groq.chat.completions.create({
     messages: [
