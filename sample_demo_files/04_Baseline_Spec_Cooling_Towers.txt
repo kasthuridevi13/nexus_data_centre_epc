@@ -1,0 +1,15 @@
+SECTION 23.10 - COOLING TOWER AND CHILLED WATER HEAT REJECTION SYSTEMS
+PROJECT: NEXUS HYPERSCALE DATA CENTRE - MECHANICAL YARD B
+SPECIFICATION STANDARD: UPTIME INSTITUTE TIER III / ASHRAE 188 / CTI STD-201
+
+Clause 2.1 - Redundancy Configuration:
+Cooling tower cells shall be configured with an N+1 minimum redundancy across all mechanical cooling blocks. The failure or routine maintenance isolation of any individual cooling tower cell shall not cause thermal degradation of facility cooling.
+
+Clause 2.3 - Water Treatment & Legionella Control:
+An automated chemical dosing, biocide injection, and continuous conductivity monitoring system shall be integrated with each cooling basin. Water treatment protocols must strictly comply with ASHRAE Standard 188 for Legionellosis risk management in building water systems.
+
+Clause 2.5 - Design Approach Temperature:
+Cooling towers shall achieve a design approach temperature of not greater than 5.0°F (2.8°C) at local 0.4% ASHRAE peak ambient wet-bulb conditions.
+
+Clause 2.8 - Structural and Seismic Resilience:
+All cooling tower towers, basins, and riser piping supports shall be anchored and certified for Seismic Zone 3 / Wind Category 4 survivability per local building code.

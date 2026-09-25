@@ -1,0 +1,18 @@
+SECTION 26.30 - UNINTERRUPTIBLE POWER SUPPLY (UPS) SYSTEMS
+PROJECT: NEXUS HYPERSCALE DATA CENTRE - BLOCK C
+SPECIFICATION STANDARD: UPTIME INSTITUTE TIER III CONCURRENTLY MAINTAINABLE
+
+Clause 3.1 - Redundancy Architecture:
+The UPS system shall be configured strictly as 2N redundant. Each UPS module and distribution path must be rated for 100% of the critical IT load independently, ensuring concurrent maintainability with zero downtime during maintenance or component failure.
+
+Clause 3.2 - Battery Autonomy & Runtime:
+Battery autonomy shall provide a minimum of 12 minutes of continuous run time at full rated load (100% capacity) before generator transfer. VRLA or Lithium-ion battery chemistry must include individual cell health monitoring.
+
+Clause 3.4 - Efficiency & Losses:
+UPS modules shall achieve a minimum operating efficiency of 96.0% in double-conversion online mode across 40% to 100% load profile, tested and verified per IEC 62040-3 and Uptime Institute Tier III specifications.
+
+Clause 3.6 - Environmental & Battery Room Cooling:
+UPS battery rooms shall maintain ambient temperature between 20°C and 25°C at all times with dedicated precision HVAC cooling systems. Battery room cooling must be completely isolated and independent of general building or mechanical room HVAC to prevent thermal runaway.
+
+Clause 4.1 - Commissioning & Factory Testing:
+Each UPS module shall undergo complete on-site load bank testing sequentially at 25%, 50%, 75%, and 100% of rated capacity prior to site handover and integrated systems testing (IST).

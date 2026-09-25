@@ -1,0 +1,18 @@
+VENDOR SUBMITTAL - TECHNICAL COMPLIANCE PACKAGE
+EQUIPMENT: INDUCED DRAFT COOLING TOWER CELLS
+PROJECT: NEXUS HYPERSCALE DATA CENTRE - MECHANICAL YARD B
+MANUFACTURER: ThermoFlow Industries Ltd.
+MODEL: TF-CT-9500 Induced Draft Crossflow Cell
+SUBMITTAL REV: 02
+
+1. System Redundancy & Block Configuration:
+The cooling plant is designed with an N+1 redundancy configuration across Mechanical Yard B. Any single cooling tower cell can be isolated for routine maintenance or basin cleaning while the remaining cells sustain 100% of maximum facility heat rejection design load.
+
+2. Legionella Prevention & Water Treatment System:
+The package incorporates fully automated chemical biocide dosing, continuous pH/ORP sensors, and electrolytic conductivity monitoring in compliance with ASHRAE Standard 188 and CTI guidelines for legionellosis risk management.
+
+3. Thermal Performance & Approach Temperature:
+Under peak design conditions (ambient wet bulb temperature of 28.0°C), each ThermoFlow cell achieves a guaranteed design approach temperature of 5.0°F (2.78°C) or lower, delivering cold water return at 30.78°C directly to the plate heat exchangers.
+
+4. Vibration & Sound Attenuation:
+All fan assemblies include low-sound aerofoil axial impellers and dual-channel vibration cutoff transmitters interlocking directly with the facility SCADA / BMS system.

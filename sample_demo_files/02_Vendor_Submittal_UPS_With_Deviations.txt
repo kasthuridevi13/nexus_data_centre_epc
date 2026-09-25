@@ -1,0 +1,21 @@
+VENDOR SUBMITTAL - TECHNICAL COMPLIANCE PACKAGE
+EQUIPMENT: UNINTERRUPTIBLE POWER SUPPLY (UPS) MODULES
+PROJECT: NEXUS HYPERSCALE DATA CENTRE - BLOCK C
+MANUFACTURER: PowerGuard Systems International
+MODEL: PG-800E High-Efficiency Modular UPS
+SUBMITTAL REV: 01
+
+1. Architecture & Redundancy Overview:
+The proposed UPS system is configured as an N+1 redundant modular array. Each module is rated for 100% of critical load under normal utility conditions. In the event of single module maintenance, system relies on the shared redundant block.
+
+2. Energy Storage & Battery Autonomy:
+The system is supplied with high-rate Valve Regulated Lead-Acid (VRLA) battery strings providing 10 minutes of continuous runtime at 100% full rated load prior to standby generator synchronisation and bus transfer.
+
+3. Electrical Operating Efficiency:
+The PowerGuard PG-800E achieves a measured typical operating efficiency of 95.2% across 40% to 100% load under factory test conditions in standard double-conversion mode.
+
+4. Environmental Conditioning & Room Requirements:
+Battery cabinets and UPS power electronics are designed for installation in the main electrical equipment room, utilizing the building's shared mechanical HVAC system with a chilled air setpoint of 22°C. Dedicated standalone precision cooling units are omitted from this package to optimize equipment footprint.
+
+5. Factory & Site Testing Schedule:
+To accelerate on-site commissioning and meet fast-track construction milestones, PowerGuard proposes an expedited load bank testing protocol consisting of 50% and 100% load testing only. The 25% and 75% testing phases are omitted as redundant based on factory pre-burn data.
